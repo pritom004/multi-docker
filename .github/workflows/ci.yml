@@ -14,6 +14,7 @@ jobs:
             - name: Run React tests
               run: docker run pritom06/react-test npm run test:ci
     build-and-push:
+        needs: build-and-test
         runs-on: ubuntu-latest
         steps:
             - name: Checkout repository

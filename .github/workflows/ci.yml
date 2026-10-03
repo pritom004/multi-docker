@@ -10,9 +10,9 @@ jobs:
             - name: Checkout repository
               uses: actions/checkout@v7
             - name: Build React test image
-              run: docker build -t pritom06/react-test -f ./client/Dockerfile.dev ./client
+              run: docker build -t react-test -f ./client/Dockerfile.dev ./client
             - name: Run React tests
-              run: docker run pritom06/react-test npm run test:ci
+              run: docker run --rm react-test npm run test:ci
     build-and-push:
         needs: build-and-test
         runs-on: ubuntu-latest
